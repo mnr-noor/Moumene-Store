@@ -3,7 +3,7 @@
 
     const NavBar = () => {
     return (
-        <nav className="bg-blue-600 text-white py-3 px-4 shadow-lg">
+        <nav className="bg-blue-500 text-white py-3 px-4 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
             {/* Main text */}
             <div className="flex-1 text-center">
