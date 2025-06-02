@@ -1,118 +1,109 @@
 "use client";
 import React, { useState } from "react";
-import CategoryCard from "./CategoryCrd";
-import categories from "../data/categories";
 import Image from "next/image";
 
-const Hero = () => {
-  const [language, setLanguage] = useState("fr");
-  const isRTL = language === "ar";
+const CategoryCard = ({
+  title = "Service Category",
+  subtitle = "Description",
+  titleAr = "فئة الخدمة",
+  subtitleAr = "الوصف",
+  imageUrl,
+  bgColor = "from-gray-400 to-gray-600",
+  productCount = 0,
+  isRTL = false
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
-  const [selectedCategory, setSelectedCategory] = useState("all");
-
-  // Get unique category types (e.g., "Media", "Services", etc.)
-  const categoryTypes = ["all", ...new Set(categories.map((c) => c.type))];
-
-  // Filter logic
-  const filteredCategories =
-    selectedCategory === "all"
-      ? categories
-      : categories.filter((c) => c.type === selectedCategory);
+  const displayTitle = isRTL ? titleAr : title;
+  const displaySubtitle = isRTL ? subtitleAr : subtitle;
 
   return (
     <div
-      className={`min-h-screen relative overflow-hidden ${
-        isRTL ? "font-arabic" : ""
-      }`}
-      style={{ direction: isRTL ? "rtl" : "ltr" }}
+      className="group relative overflow-hidden rounded-3xl bg-white/80 backdrop-blur-sm border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer"
+      style={{
+        width: "280px",
+        height: "320px",
+        direction: isRTL ? "rtl" : "ltr"
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Background */}
-      <div className="absolute inset-0 z-0">
+      <div
+        className={`absolute top-4 ${
+          isRTL ? "right-4" : "left-4"
+        } z-20 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-gray-800 text-sm font-medium border border-white/30 shadow-lg`}
+      >
+        {productCount} {isRTL ? "منتج" : "Produits"}
+      </div>
+
+      <div className="relative w-full h-48 overflow-hidden">
         <div
-          className="absolute rounded-full opacity-40 blur-3xl"
-          style={{
-            width: "900px",
-            height: "900px",
-            background: `radial-gradient(circle, #4F46E5 0%, #3B82F6 40%, transparent 70%)`,
-            top: "-300px",
-            left: "-300px",
-          }}
-        />
-        <div
-          className="absolute rounded-full opacity-30 blur-3xl"
-          style={{
-            width: "600px",
-            height: "600px",
-            background: `radial-gradient(circle, #3B82F6 0%, transparent 70%)`,
-            top: "100px",
-            right: "-200px",
-          }}
-        />
-      </div>
+          className={`absolute inset-0 bg-gradient-to-br ${bgColor} opacity-20 z-10`}
+        ></div>
 
-      {/* Top Controls */}
-      <div className="w-full flex flex-col md:flex-row md:justify-between items-center px-6 pt-6 z-10 relative gap-4">
-        {/* Language Toggle */}
-        <button
-          onClick={() => setLanguage(language === "fr" ? "ar" : "fr")}
-          className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl px-4 py-2 text-gray-700 hover:bg-white/30 transition-all duration-300"
-        >
-          {language === "fr" ? "العربية" : "Français"}
-        </button>
-
-        {/* Category Filter */}
-        <select
-          className="bg-white/30 backdrop-blur-sm border border-white/50 text-gray-700 px-4 py-2 rounded-xl shadow-sm"
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-        >
-          {categoryTypes.map((type) => (
-            <option key={type} value={type}>
-              {type === "all"
-                ? isRTL
-                  ? "الكل"
-                  : "All"
-                : isRTL
-                ? `فئة: ${type}`
-                : `Category: ${type}`}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {/* Category Cards */}
-      <div className="relative z-10 flex items-center justify-center p-8 pt-20 overflow-x-auto">
-        <div className="flex gap-8 justify-center flex-wrap max-w-7xl">
-          {filteredCategories.map((category) => (
-            <CategoryCard key={category.title} {...category} isRTL={isRTL} />
-          ))}
-        </div>
-      </div>
-
-      {/* About Section */}
-      <div className="relative z-10 flex flex-col items-center justify-center p-8 pt-20 mt-40">
-        <div className="text-center max-w-4xl flex flex-col items-center">
+        {!imageError ? (
           <Image
-            src="/logo.jpg"
-            alt="Moumene Logo"
-            width={112}
-            height={112}
-            className="rounded-full mb-6 shadow-md object-cover"
+            src={imageUrl}
+            alt={displayTitle}
+            fill
+            sizes="100%"
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            onError={() => setImageError(true)}
           />
+        ) : (
+          <div
+            className={`w-full h-full bg-gradient-to-br ${bgColor} flex items-center justify-center`}
+          >
+            <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-white/30 rounded-xl"></div>
+            </div>
+          </div>
+        )}
 
-          <h1 className="text-5xl md:text-4xl font-bold text-gray-800 mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            {isRTL ? "متجر مؤمن" : "Moumene Store"}
-          </h1>
+        <div
+          className={`absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent transition-opacity duration-300 ${
+            isHovered ? "opacity-60" : "opacity-30"
+          }`}
+        ></div>
+      </div>
 
-          <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-            {isRTL
-              ? "يتميز متجر مؤمن بخدماته المتنوعة في المجال الرقمي: إدارة الشبكات الاجتماعية، إنشاء المحتوى المرئي، الحملات الإعلانية المستهدفة، بالإضافة إلى توفير اشتراكات أدوات الذكاء الاصطناعي والبرامج المهنية."
-              : "La boutique Moumene propose divers services dans le domaine numérique : gestion des réseaux sociaux, création de contenus visuels, campagnes publicitaires ciblées, ainsi que des abonnements à des outils d'intelligence artificielle et à des logiciels professionnels."}
+      <div className="relative p-6 bg-white/90 backdrop-blur-sm h-32 flex flex-col justify-center">
+        <div
+          className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${bgColor}`}
+        ></div>
+
+        <div className={`text-center ${isRTL ? "font-arabic" : ""}`}>
+          <h3
+            className={`text-xl font-bold text-gray-800 mb-2 transition-all duration-300 ${
+              isHovered ? "text-gray-900" : ""
+            } ${isRTL ? "text-right" : "text-left"} line-clamp-1`}
+          >
+            {displayTitle}
+          </h3>
+          <p
+            className={`text-gray-600 text-sm transition-all duration-300 ${
+              isHovered ? "text-gray-700" : ""
+            } ${isRTL ? "text-right" : "text-left"} line-clamp-2`}
+          >
+            {displaySubtitle}
           </p>
         </div>
+
+        <div
+          className={`absolute bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gradient-to-r ${bgColor} rounded-full transition-all duration-300 ${
+            isHovered ? "w-20 opacity-100" : "w-8 opacity-60"
+          }`}
+        ></div>
       </div>
+
+      <div
+        className={`absolute inset-0 bg-gradient-to-br ${bgColor} opacity-0 transition-opacity duration-300 ${
+          isHovered ? "opacity-5" : ""
+        } pointer-events-none rounded-3xl`}
+      ></div>
     </div>
   );
 };
 
-export default Hero;
+export default CategoryCard;
