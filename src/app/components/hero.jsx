@@ -8,11 +8,14 @@ import Logo from "../assets/logo.jpg";
 const Hero = () => {
   const [language, setLanguage] = useState("fr");
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [modalProduct, setModalProduct] = useState(null);
   const isRTL = language === "ar";
 
   return (
     <div
-      className={`min-h-screen relative overflow-hidden ${isRTL ? "font-arabic" : ""}`}
+      className={`min-h-screen relative overflow-hidden ${
+        isRTL ? "font-arabic" : ""
+      }`}
       style={{ direction: isRTL ? "rtl" : "ltr" }}
     >
       {/* Background Effects */}
@@ -78,18 +81,20 @@ const Hero = () => {
               {isRTL ? selectedCategory.titleAr : selectedCategory.title}
             </h2>
 
-            {/* Product Cards (same layout as category cards) */}
+            {/* Product Cards */}
             <div className="flex flex-wrap justify-center gap-8">
               {selectedCategory.products.map((product, idx) => (
                 <CategoryCard
                   key={idx}
                   title={product.name}
-                  subtitle={product.description}
+                  subtitle={
+                    product.shortDescription || product.description || ""
+                  }
                   imageUrl={product.image}
                   bgColor={selectedCategory.bgColor}
                   productCount={0}
                   isRTL={isRTL}
-                  onClick={() => {}}
+                  onClick={() => setModalProduct(product)}
                 />
               ))}
             </div>
@@ -119,6 +124,94 @@ const Hero = () => {
           </p>
         </div>
       </div>
+
+      {/* Product Details Modal */}
+      {modalProduct && (
+        <div
+          className="fixed inset-0 flex justify-center items-center p-4 z-50 overflow-auto"
+          onClick={() => setModalProduct(null)}
+          style={{ background: "transparent" }}
+        >
+          <div
+            className="bg-white rounded-xl shadow-xl max-w-lg w-full max-h-[90vh] overflow-auto p-6 relative"
+            onClick={(e) => e.stopPropagation()}
+            style={{ direction: isRTL ? "rtl" : "ltr" }}
+          >
+            <button
+              className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-3xl font-bold"
+              onClick={() => setModalProduct(null)}
+              aria-label="Close modal"
+            >
+              &times;
+            </button>
+
+            <div className="relative h-64 w-full rounded-lg overflow-hidden mb-6">
+              <Image
+                src={modalProduct.image}
+                alt={modalProduct.name}
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <h2
+              className={`text-3xl font-extrabold mb-3 text-gray-900 ${
+                isRTL ? "text-right" : "text-left"
+              }`}
+            >
+              {modalProduct.name}
+            </h2>
+
+            {/* Description: array or string */}
+            <p
+              className={`text-gray-700 text-lg mb-6 leading-relaxed whitespace-pre-line ${
+                isRTL ? "text-right" : "text-left"
+              }`}
+            >
+              {Array.isArray(modalProduct.description)
+                ? modalProduct.description.join("\n")
+                : modalProduct.description}
+            </p>
+
+            {/* Pricing */}
+            {modalProduct.pricing && modalProduct.pricing.length > 0 ? (
+              <div className={`mb-6 ${isRTL ? "text-right" : "text-left"}`}>
+                <h3 className="text-xl font-semibold mb-2">
+                  {isRTL ? "الأسعار" : "Pricing"}
+                </h3>
+                <ul className="list-disc list-inside space-y-1 text-gray-800">
+                  {modalProduct.pricing.map(({ duration, price }, idx) => (
+                    <li key={idx}>
+                      <strong>{duration}:</strong> {price}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              modalProduct.price && (
+                <p
+                  className={`text-xl font-semibold mb-4 ${
+                    isRTL ? "text-right" : "text-left"
+                  }`}
+                >
+                  {isRTL ? "السعر: " : "Price: "} {modalProduct.price}
+                </p>
+              )
+            )}
+
+            {/* Notes */}
+            {modalProduct.notes && (
+              <p
+                className={`text-gray-600 text-sm mt-4 ${
+                  isRTL ? "text-right" : "text-left"
+                }`}
+              >
+                {modalProduct.notes}
+              </p>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
