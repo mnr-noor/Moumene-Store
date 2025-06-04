@@ -113,14 +113,17 @@ const Hero = () => {
           />
 
           <h1 className="text-5xl md:text-4xl font-bold text-gray-800 mb-8 bg-gradient-to-r from-blue-600 to-blue-300 bg-clip-text text-transparent">
-            {isRTL ? "متجر مؤمن" : "Moumene Store"}
-          </h1>
+                Moumene Store
+              </h1>
 
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-            {isRTL
-              ? "متجر مؤمن هو وجهتك الموثوقة لشراء  البرامج، الاشتراكات الرقمية والخدمات التقنية المخصصة. سواء كنت فردًا أو صاحب مؤسسة، نوفر لك منتجات مضمونة ودعمًا احترافيًا لتلبية كل احتياجاتك التكنولوجية."
-              : "Moumene Store est votre boutique de confiance spécialisée dans  logiciels, abonnements numériques et services personnalisés. Que vous soyez un particulier ou une entreprise, nous vous proposons des produits fiables et un accompagnement professionnel pour tous vos besoins technologiques."}
-          </p>
+  {isRTL ? (
+    "في moumene store، بدأنا رحلتنا في عالم المنتجات الرقمية عام 2022، ومنذ ذلك الحين وضعنا الجودة والموثوقية في صميم كل ما نقدمه. نلتزم بتوفير خدمات رقمية احترافية، سواء كنت تبحث عن اشتراكات، حلول رقمية، أو دعم سريع وآمن. عملاؤنا يثقون بنا لأننا نركز على التفاصيل، ونحرص على تقديم تجربة سلسة ومرضية من أول تواصل حتى ما بعد البيع. اختر moumene store… حيث تلتقي الجودة بالثقة."
+  ) : (
+    "Chez Moumene Store, nous avons commencé notre aventure dans le monde des produits digitaux en 2022, en plaçant depuis toujours la qualité et la fiabilité au cœur de nos services. Nous nous engageons à fournir des prestations numériques professionnelles, que vous recherchiez des abonnements, des solutions digitales ou un support rapide et sécurisé. Nos clients nous font confiance grâce à notre souci du détail et notre volonté de garantir une expérience fluide et satisfaisante, du premier contact jusqu’au service après-vente. Choisissez Moumene Store… là où la qualité rencontre la confiance."
+  )}
+</p>
+
         </div>
       </div>
 
