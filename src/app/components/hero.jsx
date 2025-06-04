@@ -92,7 +92,6 @@ const Hero = () => {
                   }
                   imageUrl={product.image}
                   bgColor={selectedCategory.bgColor}
-                  productCount={0}
                   isRTL={isRTL}
                   onClick={() => setModalProduct(product)}
                 />
@@ -113,14 +112,14 @@ const Hero = () => {
             className="rounded-full mb-6 shadow-md object-cover"
           />
 
-          <h1 className="text-5xl md:text-4xl font-bold text-gray-800 mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-4xl font-bold text-gray-800 mb-8 bg-gradient-to-r from-blue-600 to-blue-300 bg-clip-text text-transparent">
             {isRTL ? "متجر مؤمن" : "Moumene Store"}
           </h1>
 
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
             {isRTL
-              ? "يتميز متجر مؤمن بخدماته المتنوعة في المجال الرقمي: إدارة الشبكات الاجتماعية، إنشاء المحتوى المرئي، الحملات الإعلانية المستهدفة، بالإضافة إلى توفير اشتراكات أدوات الذكاء الاصطناعي والبرامج المهنية."
-              : "La boutique Moumene propose divers services dans le domaine numérique : gestion des réseaux sociaux, création de contenus visuels, campagnes publicitaires ciblées, ainsi que des abonnements à des outils d'intelligence artificielle et à des logiciels professionnels."}
+              ? "متجر مؤمن هو وجهتك الموثوقة لشراء  البرامج، الاشتراكات الرقمية والخدمات التقنية المخصصة. سواء كنت فردًا أو صاحب مؤسسة، نوفر لك منتجات مضمونة ودعمًا احترافيًا لتلبية كل احتياجاتك التكنولوجية."
+              : "Moumene Store est votre boutique de confiance spécialisée dans  logiciels, abonnements numériques et services personnalisés. Que vous soyez un particulier ou une entreprise, nous vous proposons des produits fiables et un accompagnement professionnel pour tous vos besoins technologiques."}
           </p>
         </div>
       </div>
@@ -128,69 +127,80 @@ const Hero = () => {
       {/* Product Details Modal */}
       {modalProduct && (
         <div
-          className="fixed inset-0 flex justify-center items-center p-4 z-50 overflow-auto"
-          onClick={() => setModalProduct(null)}
-          style={{ background: "transparent" }}
+        className="fixed inset-0 z-50 flex justify-center items-center p-6 overflow-auto bg-black/40 backdrop-blur-md animate-fadeIn"
+        onClick={() => setModalProduct(null)}
         >
           <div
-            className="bg-white rounded-xl shadow-xl max-w-lg w-full max-h-[90vh] overflow-auto p-6 relative"
+            className={`bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-8 relative`}
             onClick={(e) => e.stopPropagation()}
             style={{ direction: isRTL ? "rtl" : "ltr" }}
           >
+            {/* Close Button */}
             <button
-              className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-3xl font-bold"
+              className="absolute top-5 right-5 text-gray-600 hover:text-gray-900 text-4xl font-bold transition-colors"
               onClick={() => setModalProduct(null)}
               aria-label="Close modal"
             >
               &times;
             </button>
 
-            <div className="relative h-64 w-full rounded-lg overflow-hidden mb-6">
+            {/* Image */}
+            <div className="relative h-72 w-full rounded-xl overflow-hidden mb-8 shadow-md">
               <Image
                 src={modalProduct.image}
                 alt={modalProduct.name}
                 fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, 600px"
               />
             </div>
 
+            {/* Title */}
             <h2
-              className={`text-3xl font-extrabold mb-3 text-gray-900 ${
+              className={`text-4xl font-extrabold mb-5 text-gray-900 ${
                 isRTL ? "text-right" : "text-left"
               }`}
             >
               {modalProduct.name}
             </h2>
 
-            {/* Description: array or string */}
+            {/* Description */}
             <p
-              className={`text-gray-700 text-lg mb-6 leading-relaxed whitespace-pre-line ${
+              className={`text-gray-700 text-lg mb-8 leading-relaxed whitespace-pre-line ${
                 isRTL ? "text-right" : "text-left"
               }`}
             >
               {Array.isArray(modalProduct.description)
-                ? modalProduct.description.join("\n")
+                ? modalProduct.description.join("\n\n")
                 : modalProduct.description}
             </p>
 
             {/* Pricing */}
             {modalProduct.pricing && modalProduct.pricing.length > 0 ? (
-              <div className={`mb-6 ${isRTL ? "text-right" : "text-left"}`}>
-                <h3 className="text-xl font-semibold mb-2">
+              <section
+                className={`mb-8 ${
+                  isRTL ? "text-right" : "text-left"
+                }`}
+              >
+                <h3 className="text-2xl font-semibold mb-4 border-b border-gray-200 pb-2">
                   {isRTL ? "الأسعار" : "Pricing"}
                 </h3>
-                <ul className="list-disc list-inside space-y-1 text-gray-800">
+                <ul className="space-y-3">
                   {modalProduct.pricing.map(({ duration, price }, idx) => (
-                    <li key={idx}>
-                      <strong>{duration}:</strong> {price}
+                    <li
+                      key={idx}
+                      className="bg-gray-100 rounded-lg p-4 shadow-sm flex justify-between items-center font-medium text-gray-800"
+                    >
+                      <span>{duration}</span>
+                      <span className="text-blue-600 font-bold">{price}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
+              </section>
             ) : (
               modalProduct.price && (
                 <p
-                  className={`text-xl font-semibold mb-4 ${
+                  className={`text-xl font-semibold mb-6 ${
                     isRTL ? "text-right" : "text-left"
                   }`}
                 >
@@ -202,7 +212,7 @@ const Hero = () => {
             {/* Notes */}
             {modalProduct.notes && (
               <p
-                className={`text-gray-600 text-sm mt-4 ${
+                className={`text-gray-600 text-sm mt-4 border-t border-gray-200 pt-4 ${
                   isRTL ? "text-right" : "text-left"
                 }`}
               >
@@ -210,6 +220,32 @@ const Hero = () => {
               </p>
             )}
           </div>
+
+          {/* Animation styles */}
+          <style jsx>{`
+            @keyframes fadeIn {
+              from {
+                opacity: 0;
+              }
+              to {
+                opacity: 1;
+              }
+            }
+            .animate-fadeIn {
+              animation: fadeIn 0.25s ease forwards;
+            }
+            /* Custom scrollbar */
+            div::-webkit-scrollbar {
+              width: 8px;
+            }
+            div::-webkit-scrollbar-thumb {
+              background-color: rgba(100, 100, 100, 0.4);
+              border-radius: 4px;
+            }
+            div::-webkit-scrollbar-track {
+              background: transparent;
+            }
+          `}</style>
         </div>
       )}
     </div>
