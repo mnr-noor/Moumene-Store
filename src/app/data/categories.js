@@ -226,7 +226,7 @@ const categories = [
         notes:
           "Netflix هي أشهر منصة بث عالمية، تقدم مكتبة ضخمة من الأفلام، المسلسلات، الوثائقيات، والبرامج الأصلية. مع اشتراك Netflix، تحصل على تجربة ترفيهية متجددة باستمرار، بجودة عالية ومناسبة لكل أفراد العائلة.",
         price: "700 DA - 19500 DA",
-        image: Netflix, // Replace with actual image import
+        image: Netflix, 
       },
       {
         name: "Disney+",
@@ -251,7 +251,7 @@ const categories = [
         notes:
           "Disney+ هي منصة ديزني الرسمية، تعرض محتوى حصري من Disney، Pixar، Marvel، Star Wars، وNational Geographic. مناسبة للعائلات ومحبي الأفلام الأسطورية.",
         price: "500 DA - 20000 DA",
-        image: DisneyPlus, // Replace with actual image import
+        image: DisneyPlus, 
       },
       {
         name: "Crunchyroll",
@@ -277,7 +277,7 @@ const categories = [
         notes:
           "Crunchyroll هي الوجهة الأولى لمحبي الأنمي، تقدم آلاف الحلقات من أشهر الأنميات مترجمة وبدون إعلانات، مع عرض الحلقات الجديدة بالتزامن مع اليابان.",
         price: "500 DA - 7500 DA",
-        image: Crunchyroll, // Replace with actual image import
+        image: Crunchyroll,
       }
       
       

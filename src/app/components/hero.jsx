@@ -42,7 +42,6 @@ const Hero = () => {
         />
       </div>
 
-      {/* Language Toggle */}
       <div className="w-full flex justify-end px-6 pt-6 z-10 relative">
         <button
           onClick={() => setLanguage(language === "fr" ? "ar" : "fr")}
@@ -52,10 +51,8 @@ const Hero = () => {
         </button>
       </div>
 
-      {/* Main Content */}
       <div className="relative z-10 p-8 pt-20 max-w-7xl mx-auto min-h-[60vh]">
         {!selectedCategory ? (
-          // Category Cards
           <div className="flex flex-wrap justify-center gap-8">
             {categories.map((category) => (
               <CategoryCard
@@ -68,7 +65,6 @@ const Hero = () => {
           </div>
         ) : (
           <>
-            {/* Back Button */}
             <button
               onClick={() => setSelectedCategory(null)}
               className="mb-8 bg-blue-600 text-white rounded-lg px-6 py-2 hover:bg-blue-700 transition"
@@ -76,12 +72,10 @@ const Hero = () => {
               {isRTL ? "العودة إلى القائمة" : "Retour aux catégories"}
             </button>
 
-            {/* Category Title */}
             <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
               {isRTL ? selectedCategory.titleAr : selectedCategory.title}
             </h2>
 
-            {/* Product Cards */}
             <div className="flex flex-wrap justify-center gap-8">
               {selectedCategory.products.map((product, idx) => (
                 <CategoryCard
@@ -101,7 +95,6 @@ const Hero = () => {
         )}
       </div>
 
-      {/* About Section */}
       <div className="relative z-10 flex flex-col items-center justify-center p-8 pt-20 mt-40">
         <div className="text-center max-w-4xl flex flex-col items-center">
           <Image
@@ -127,7 +120,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Product Details Modal */}
       {modalProduct && (
         <div
         className="fixed inset-0 z-50 flex justify-center items-center p-6 overflow-auto bg-black/40 backdrop-blur-md animate-fadeIn"
@@ -138,7 +130,6 @@ const Hero = () => {
             onClick={(e) => e.stopPropagation()}
             style={{ direction: isRTL ? "rtl" : "ltr" }}
           >
-            {/* Close Button */}
             <button
               className="absolute top-5 right-5 text-gray-600 hover:text-gray-900 text-4xl font-bold transition-colors"
               onClick={() => setModalProduct(null)}
@@ -147,7 +138,6 @@ const Hero = () => {
               &times;
             </button>
 
-            {/* Image */}
             <div className="relative h-72 w-full rounded-xl overflow-hidden mb-8 shadow-md">
               <Image
                 src={modalProduct.image}
@@ -158,7 +148,6 @@ const Hero = () => {
               />
             </div>
 
-            {/* Title */}
             <h2
               className={`text-4xl font-extrabold mb-5 text-gray-900 ${
                 isRTL ? "text-right" : "text-left"
@@ -167,7 +156,6 @@ const Hero = () => {
               {modalProduct.name}
             </h2>
 
-            {/* Description */}
             <p
               className={`text-gray-700 text-lg mb-8 leading-relaxed whitespace-pre-line ${
                 isRTL ? "text-right" : "text-left"
@@ -178,7 +166,6 @@ const Hero = () => {
                 : modalProduct.description}
             </p>
 
-            {/* Pricing */}
             {modalProduct.pricing && modalProduct.pricing.length > 0 ? (
               <section
                 className={`mb-8 ${
@@ -212,7 +199,6 @@ const Hero = () => {
               )
             )}
 
-            {/* Notes */}
             {modalProduct.notes && (
               <p
                 className={`text-gray-600 text-sm mt-4 border-t border-gray-200 pt-4 ${
@@ -224,7 +210,6 @@ const Hero = () => {
             )}
           </div>
 
-          {/* Animation styles */}
           <style jsx>{`
             @keyframes fadeIn {
               from {

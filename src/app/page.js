@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div>
       <NavBar />
-      <main className="pt-20"> {/* Add top padding to account for fixed navbar */}
+      <main className="pt-20"> 
         <Hero />
       </main>
       <Footer />
