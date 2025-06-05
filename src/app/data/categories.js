@@ -15,7 +15,7 @@ import AppleOne from "/public/appleone.jpg"
 import SnapchatPlus from "/public/snapchat.jpg"
 const categories = [
   {
-    title: "Music & Audio",
+    title: "Music & Audi",
     titleAr: "موسيقى و صوتيات",
     subtitle: "Sound and Media Files",
     subtitleAr: "ملفات صوتية و وسائط",
