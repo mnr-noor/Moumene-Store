@@ -11,8 +11,10 @@ const Hero = () => {
   const [modalProduct, setModalProduct] = useState(null);
   const isRTL = language === "ar";
 
-  const getLocalized = (item, field) =>
-    isRTL ? item[`${field}Ar`] || item[field] : item[field];
+  const getLocalized = (item, field) => {
+    const arabicValue = item[`${field}Ar`];
+    return isRTL && arabicValue ? arabicValue : item[field];
+  };
 
   return (
     <div

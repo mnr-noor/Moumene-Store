@@ -1,8 +1,7 @@
     import React from 'react';
     import Image from 'next/image';
     import { Instagram } from 'lucide-react';
-    import TikTokIcon from '/public/tiktok.png'; // ajuste le chemin si besoin
-
+    import TikTokIcon from '/public/tiktok.png'; 
     const Footer = () => {
     return (
         <nav className="bg-blue-400 text-white py-3 px-4 shadow-lg">
