@@ -17,7 +17,7 @@
 
             <div className="flex items-center space-x-3 ml-4">
             <a
-                href="https://www.instagram.com/moumene.store"
+                href="https://www.instagram.com/moumene_store/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:bg-blue-700 p-2 rounded-full transition-colors duration-200"
