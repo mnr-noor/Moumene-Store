@@ -15,10 +15,8 @@ import AppleOne from "/public/appleone.jpg"
 import SnapchatPlus from "/public/snapchat.jpg"
 const categories = [
   {
-    title: "Music & Audi",
-    titleAr: "موسيقى و صوتيات",
-    subtitle: "Sound and Media Files",
-    subtitleAr: "ملفات صوتية و وسائط",
+    title: "موسيقى و صوتيات",
+    subtitle: "ملفات صوتية و وسائط",
     imageUrl: Music,
     bgColor: "from-green-400 to-green-600",
     productCount: 2,
@@ -77,10 +75,8 @@ const categories = [
     ],
   },
   {
-    title: "Movies & Series",
-    titleAr: "افلام و مسلسلات",
-    subtitle: "Entertainment Content",
-    subtitleAr: "محتوى ترفيهي",
+    title: "افلام و مسلسلات",
+    subtitle: "محتوى ترفيهي",
     imageUrl: Serie,
     bgColor: "from-blue-400 to-blue-600",
     productCount: 6,
@@ -292,10 +288,8 @@ const categories = [
     ],
   },
   {
-    title: "Social Plus Subscriptions",
-    titleAr: "اشتراكات سوشيال بلس",
-    subtitle: "Online Services",
-    subtitleAr: "خدمات عبر الإنترنت",
+    title: "اشتراكات سوشيال بلس",
+    subtitle: "خدمات عبر الإنترنت",
     imageUrl: Plus,
     bgColor: "from-cyan-400 to-cyan-600",
     productCount: 1,
@@ -337,10 +331,8 @@ const categories = [
     ],
   },
   {
-    title: "Apple Subscriptions (iPhone)",
-    titleAr: "اشتراكات التفاحة (ايفون)",
-    subtitle: "iOS Premium Content",
-    subtitleAr: "محتوى مدفوع للآيفون",
+    title: "اشتراكات التفاحة (ايفون)",
+    subtitle: "محتوى مدفوع للآيفون",
     imageUrl: Iphone,
     bgColor: "from-purple-400 to-purple-600",
     productCount: 2,
