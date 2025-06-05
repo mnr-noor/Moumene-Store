@@ -80,7 +80,7 @@ const Hero = () => {
               {selectedCategory.products.map((product, idx) => (
                 <CategoryCard
                   key={idx}
-                  title={product.name}
+                  title={product.nameAr}
                   subtitle={
                     product.shortDescription || product.description || ""
                   }
@@ -106,24 +106,23 @@ const Hero = () => {
           />
 
           <h1 className="text-5xl md:text-4xl font-bold text-gray-800 mb-8 bg-gradient-to-r from-blue-600 to-blue-300 bg-clip-text text-transparent">
-                Moumene Store
-              </h1>
+            Moumene Store
+          </h1>
 
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-  {isRTL ? (
-    "في moumene store، بدأنا رحلتنا في عالم المنتجات الرقمية عام 2022، ومنذ ذلك الحين وضعنا الجودة والموثوقية في صميم كل ما نقدمه. نلتزم بتوفير خدمات رقمية احترافية، سواء كنت تبحث عن اشتراكات، حلول رقمية، أو دعم سريع وآمن. عملاؤنا يثقون بنا لأننا نركز على التفاصيل، ونحرص على تقديم تجربة سلسة ومرضية من أول تواصل حتى ما بعد البيع. اختر moumene store… حيث تلتقي الجودة بالثقة."
-  ) : (
-    "Chez Moumene Store, nous avons commencé notre aventure dans le monde des produits digitaux en 2022, en plaçant depuis toujours la qualité et la fiabilité au cœur de nos services. Nous nous engageons à fournir des prestations numériques professionnelles, que vous recherchiez des abonnements, des solutions digitales ou un support rapide et sécurisé. Nos clients nous font confiance grâce à notre souci du détail et notre volonté de garantir une expérience fluide et satisfaisante, du premier contact jusqu’au service après-vente. Choisissez Moumene Store… là où la qualité rencontre la confiance."
-  )}
-</p>
-
+            {isRTL ? (
+              "في moumene store، بدأنا رحلتنا في عالم المنتجات الرقمية عام 2022، ومنذ ذلك الحين وضعنا الجودة والموثوقية في صميم كل ما نقدمه..."
+            ) : (
+              "Chez Moumene Store, nous avons commencé notre aventure dans le monde des produits digitaux en 2022..."
+            )}
+          </p>
         </div>
       </div>
 
       {modalProduct && (
         <div
-        className="fixed inset-0 z-50 flex justify-center items-center p-6 overflow-auto bg-black/40 backdrop-blur-md animate-fadeIn"
-        onClick={() => setModalProduct(null)}
+          className="fixed inset-0 z-50 flex justify-center items-center p-6 overflow-auto bg-black/40 backdrop-blur-md animate-fadeIn"
+          onClick={() => setModalProduct(null)}
         >
           <div
             className={`bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-8 relative`}
@@ -141,7 +140,7 @@ const Hero = () => {
             <div className="relative h-72 w-full rounded-xl overflow-hidden mb-8 shadow-md">
               <Image
                 src={modalProduct.image}
-                alt={modalProduct.name}
+                alt={modalProduct.nameAr}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 600px"
@@ -153,7 +152,7 @@ const Hero = () => {
                 isRTL ? "text-right" : "text-left"
               }`}
             >
-              {modalProduct.name}
+              {modalProduct.nameAr}
             </h2>
 
             <p
@@ -168,9 +167,7 @@ const Hero = () => {
 
             {modalProduct.pricing && modalProduct.pricing.length > 0 ? (
               <section
-                className={`mb-8 ${
-                  isRTL ? "text-right" : "text-left"
-                }`}
+                className={`mb-8 ${isRTL ? "text-right" : "text-left"}`}
               >
                 <h3 className="text-2xl font-semibold mb-4 border-b border-gray-200 pb-2">
                   {isRTL ? "الأسعار" : "Pricing"}
@@ -222,7 +219,6 @@ const Hero = () => {
             .animate-fadeIn {
               animation: fadeIn 0.25s ease forwards;
             }
-            /* Custom scrollbar */
             div::-webkit-scrollbar {
               width: 8px;
             }
