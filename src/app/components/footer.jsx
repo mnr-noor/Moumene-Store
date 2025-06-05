@@ -1,7 +1,7 @@
     import React from 'react';
     import Image from 'next/image';
     import { Instagram } from 'lucide-react';
-    import TikTokIcon from '../assets/tiktok.png'; // ajuste le chemin si besoin
+    import TikTokIcon from '/public/tiktok.png'; // ajuste le chemin si besoin
 
     const Footer = () => {
     return (

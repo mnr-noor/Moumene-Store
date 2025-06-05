@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import CategoryCard from "./CategoryCrd";
 import categories from "../data/categories";
 import Image from "next/image";
-import Logo from "../assets/logo.jpg";
+import Logo from "/public/logo.jpg";
 
 const Hero = () => {
   const [language, setLanguage] = useState("fr");
