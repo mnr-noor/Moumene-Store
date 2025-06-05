@@ -11,6 +11,9 @@ const Hero = () => {
   const [modalProduct, setModalProduct] = useState(null);
   const isRTL = language === "ar";
 
+  const getLocalized = (item, field) =>
+    isRTL ? item[`${field}Ar`] || item[field] : item[field];
+
   return (
     <div
       className={`min-h-screen relative overflow-hidden ${
@@ -73,16 +76,18 @@ const Hero = () => {
             </button>
 
             <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
-              {isRTL ? selectedCategory.titleAr : selectedCategory.title}
+              {getLocalized(selectedCategory, "title")}
             </h2>
 
             <div className="flex flex-wrap justify-center gap-8">
               {selectedCategory.products.map((product, idx) => (
                 <CategoryCard
                   key={idx}
-                  title={product.nameAr}
+                  title={getLocalized(product, "name")}
                   subtitle={
-                    product.shortDescription || product.description || ""
+                    getLocalized(product, "shortDescription") ||
+                    getLocalized(product, "description") ||
+                    ""
                   }
                   imageUrl={product.image}
                   bgColor={selectedCategory.bgColor}
@@ -140,7 +145,7 @@ const Hero = () => {
             <div className="relative h-72 w-full rounded-xl overflow-hidden mb-8 shadow-md">
               <Image
                 src={modalProduct.image}
-                alt={modalProduct.nameAr}
+                alt={getLocalized(modalProduct, "name")}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 600px"
@@ -152,7 +157,7 @@ const Hero = () => {
                 isRTL ? "text-right" : "text-left"
               }`}
             >
-              {modalProduct.nameAr}
+              {getLocalized(modalProduct, "name")}
             </h2>
 
             <p
@@ -160,9 +165,9 @@ const Hero = () => {
                 isRTL ? "text-right" : "text-left"
               }`}
             >
-              {Array.isArray(modalProduct.description)
-                ? modalProduct.description.join("\n\n")
-                : modalProduct.description}
+              {Array.isArray(getLocalized(modalProduct, "description"))
+                ? getLocalized(modalProduct, "description").join("\n\n")
+                : getLocalized(modalProduct, "description")}
             </p>
 
             {modalProduct.pricing && modalProduct.pricing.length > 0 ? (
