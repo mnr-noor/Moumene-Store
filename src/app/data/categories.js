@@ -36,7 +36,7 @@ const categories = [
           "✔️ تشغيل غير محدود لأي أغنية",
         ],
         pricing: [
-          { duration: "1 mois avec votre email", price: "600 DA" },
+          { duration: " mois avec votre email 1", price: "600 DA" },
           { duration: "2 mois avec votre email", price: "1000 DA" },
           { duration: "3 mois avec votre email", price: "1400 DA" },
           { duration: "6 mois avec votre email + cadeaux", price: "2200 DA" },
