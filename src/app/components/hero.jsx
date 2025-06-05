@@ -9,12 +9,10 @@ const Hero = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [modalProduct, setModalProduct] = useState(null);
 
-  const getLocalized = (item, field) => {
-    return item[field];
-  };
+  const getLocalized = (item, field) => item[field];
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden" style={{ direction: "rtl" }}>
       {/* Background Effects */}
       <div className="absolute inset-0 z-0">
         <div
@@ -56,7 +54,7 @@ const Hero = () => {
               onClick={() => setSelectedCategory(null)}
               className="mb-8 bg-blue-600 text-white rounded-lg px-6 py-2 hover:bg-blue-700 transition"
             >
-              Retour aux catégories
+              العودة إلى القائمة
             </button>
 
             <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
@@ -98,7 +96,9 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-            في moumene store، بدأنا رحلتنا في عالم المنتجات الرقمية عام 2022، ومنذ ذلك الحين وضعنا الجودة والموثوقية في صميم كل ما نقدمه...
+            تعريف : في moumene store، بدأنا رحلتنا في عالم المنتجات الرقمية عام 2022، ومنذ ذلك الحين وضعنا الجودة والموثوقية في صميم كل ما نقدمه. نلتزم بتوفير خدمات رقمية احترافية، سواء كنت تبحث عن اشتراكات، حلول رقمية، أو دعم سريع وآمن.
+            عملاؤنا يثقون بنا لأننا نركز على التفاصيل، ونحرص على تقديم تجربة سلسة ومرضية من أول تواصل حتى ما بعد البيع.
+            اختر moumene store… حيث تلتقي الجودة بالثقة.
           </p>
         </div>
       </div>
@@ -143,7 +143,7 @@ const Hero = () => {
             {modalProduct.pricing && modalProduct.pricing.length > 0 ? (
               <section className="mb-8">
                 <h3 className="text-2xl font-semibold mb-4 border-b border-gray-200 pb-2">
-                  Pricing
+                  الأسعار
                 </h3>
                 <ul className="space-y-3">
                   {modalProduct.pricing.map(({ duration, price }, idx) => (
@@ -160,7 +160,7 @@ const Hero = () => {
             ) : (
               modalProduct.price && (
                 <p className="text-xl font-semibold mb-6">
-                  Price: {modalProduct.price}
+                  السعر: {modalProduct.price}
                 </p>
               )
             )}
