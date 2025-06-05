@@ -6,23 +6,15 @@ import Image from "next/image";
 import Logo from "/public/logo.jpg";
 
 const Hero = () => {
-  const [language, setLanguage] = useState("fr");
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [modalProduct, setModalProduct] = useState(null);
-  const isRTL = language === "ar";
 
   const getLocalized = (item, field) => {
-    const arabicValue = item[`${field}Ar`];
-    return isRTL && arabicValue ? arabicValue : item[field];
+    return item[field];
   };
 
   return (
-    <div
-      className={`min-h-screen relative overflow-hidden ${
-        isRTL ? "font-arabic" : ""
-      }`}
-      style={{ direction: isRTL ? "rtl" : "ltr" }}
-    >
+    <div className="min-h-screen relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 z-0">
         <div
@@ -47,15 +39,6 @@ const Hero = () => {
         />
       </div>
 
-      <div className="w-full flex justify-end px-6 pt-6 z-10 relative">
-        <button
-          onClick={() => setLanguage(language === "fr" ? "ar" : "fr")}
-          className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl px-4 py-2 text-gray-700 hover:bg-white/30 transition-all duration-300"
-        >
-          {language === "fr" ? "العربية" : "Français"}
-        </button>
-      </div>
-
       <div className="relative z-10 p-8 pt-20 max-w-7xl mx-auto min-h-[60vh]">
         {!selectedCategory ? (
           <div className="flex flex-wrap justify-center gap-8">
@@ -63,7 +46,6 @@ const Hero = () => {
               <CategoryCard
                 key={category.title}
                 {...category}
-                isRTL={isRTL}
                 onClick={() => setSelectedCategory(category)}
               />
             ))}
@@ -74,7 +56,7 @@ const Hero = () => {
               onClick={() => setSelectedCategory(null)}
               className="mb-8 bg-blue-600 text-white rounded-lg px-6 py-2 hover:bg-blue-700 transition"
             >
-              {isRTL ? "العودة إلى القائمة" : "Retour aux catégories"}
+              Retour aux catégories
             </button>
 
             <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
@@ -93,7 +75,6 @@ const Hero = () => {
                   }
                   imageUrl={product.image}
                   bgColor={selectedCategory.bgColor}
-                  isRTL={isRTL}
                   onClick={() => setModalProduct(product)}
                 />
               ))}
@@ -117,11 +98,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-            {isRTL ? (
-              "في moumene store، بدأنا رحلتنا في عالم المنتجات الرقمية عام 2022، ومنذ ذلك الحين وضعنا الجودة والموثوقية في صميم كل ما نقدمه..."
-            ) : (
-              "Chez Moumene Store, nous avons commencé notre aventure dans le monde des produits digitaux en 2022..."
-            )}
+            في moumene store، بدأنا رحلتنا في عالم المنتجات الرقمية عام 2022، ومنذ ذلك الحين وضعنا الجودة والموثوقية في صميم كل ما نقدمه...
           </p>
         </div>
       </div>
@@ -132,9 +109,8 @@ const Hero = () => {
           onClick={() => setModalProduct(null)}
         >
           <div
-            className={`bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-8 relative`}
+            className="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-8 relative"
             onClick={(e) => e.stopPropagation()}
-            style={{ direction: isRTL ? "rtl" : "ltr" }}
           >
             <button
               className="absolute top-5 right-5 text-gray-600 hover:text-gray-900 text-4xl font-bold transition-colors"
@@ -154,30 +130,20 @@ const Hero = () => {
               />
             </div>
 
-            <h2
-              className={`text-4xl font-extrabold mb-5 text-gray-900 ${
-                isRTL ? "text-right" : "text-left"
-              }`}
-            >
+            <h2 className="text-4xl font-extrabold mb-5 text-gray-900">
               {getLocalized(modalProduct, "name")}
             </h2>
 
-            <p
-              className={`text-gray-700 text-lg mb-8 leading-relaxed whitespace-pre-line ${
-                isRTL ? "text-right" : "text-left"
-              }`}
-            >
+            <p className="text-gray-700 text-lg mb-8 leading-relaxed whitespace-pre-line">
               {Array.isArray(getLocalized(modalProduct, "description"))
                 ? getLocalized(modalProduct, "description").join("\n\n")
                 : getLocalized(modalProduct, "description")}
             </p>
 
             {modalProduct.pricing && modalProduct.pricing.length > 0 ? (
-              <section
-                className={`mb-8 ${isRTL ? "text-right" : "text-left"}`}
-              >
+              <section className="mb-8">
                 <h3 className="text-2xl font-semibold mb-4 border-b border-gray-200 pb-2">
-                  {isRTL ? "الأسعار" : "Pricing"}
+                  Pricing
                 </h3>
                 <ul className="space-y-3">
                   {modalProduct.pricing.map(({ duration, price }, idx) => (
@@ -193,22 +159,14 @@ const Hero = () => {
               </section>
             ) : (
               modalProduct.price && (
-                <p
-                  className={`text-xl font-semibold mb-6 ${
-                    isRTL ? "text-right" : "text-left"
-                  }`}
-                >
-                  {isRTL ? "السعر: " : "Price: "} {modalProduct.price}
+                <p className="text-xl font-semibold mb-6">
+                  Price: {modalProduct.price}
                 </p>
               )
             )}
 
             {modalProduct.notes && (
-              <p
-                className={`text-gray-600 text-sm mt-4 border-t border-gray-200 pt-4 ${
-                  isRTL ? "text-right" : "text-left"
-                }`}
-              >
+              <p className="text-gray-600 text-sm mt-4 border-t border-gray-200 pt-4">
                 {modalProduct.notes}
               </p>
             )}
