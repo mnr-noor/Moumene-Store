@@ -1,25 +1,31 @@
 import React from 'react';
+import Image from 'next/image';
 import { Shield, Headphones, Zap } from 'lucide-react';
-import heroBg from '../assets/bg.jpg';
+import Bg from '../assets/hero.jpg';
 
 const Hero = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div
-        className="relative min-h-screen flex flex-col items-center justify-center px-4 text-center bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      >
-        {/* Glass Blue Overlay with Radiant Effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 via-blue-600/40 to-blue-700/50 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-gradient-radial from-blue-400/20 via-transparent to-blue-800/30"></div>
+      <div className="relative min-h-screen flex flex-col items-center justify-center px-4 text-center">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <image
+            src={Bg} 
+            alt="Background" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Blue Radiant Effect Only */}
+        <div className="absolute inset-0 bg-gradient-radial from-blue-400/20 via-blue-200/10 to-transparent"></div>
 
         {/* Main Content */}
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           {/* Store Name */}
           <div className="mb-8">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-wide drop-shadow-lg">
-              Moumene Store
+              MoumeneStore
             </h1>
           </div>
 
