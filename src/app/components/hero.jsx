@@ -1,44 +1,45 @@
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+
 import { Shield, Headphones, Zap, Star, Users, Award, ArrowRight } from 'lucide-react';
-import bgHero from '../assets/hero.jpg';
+import bgHero from '../assets/bg-k.jpg';
+
+
 const Hero = () => {
   return (
     <div className="min-h-screen">
-      <div 
-        className="relative min-h-screen flex flex-col items-center justify-center px-4 text-center overflow-hidden bg-cover bg-center"
-        style={{ backgroundImage: "url(bgHero)" }}
-      >
-        <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
-          <div className="mb-8 relative">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight text-white drop-shadow-xl">
-              Moumene Store
-            </h1>
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white/10 blur-md">
-                Moumene Store
-              </h1>
-            </div>
-          </div>
-
-          <div className="relative mx-auto mb-8">
-            <div className="w-32 h-1 bg-white mx-auto rounded-full shadow-lg"></div>
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-white rounded-full blur-sm animate-pulse"></div>
-          </div>
-
-          <p 
-            className="text-xl md:text-2xl text-white mb-12 leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-lg" 
-            dir="rtl"
-          >
+      {/* Hero Section */}
+      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <Image
+            src={bgHero}
+            alt="Background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        {/* Dark overlay */}
+        {/* <div className="absolute inset-0 bg-black/60" /> */}
+        {/* Content */}
+        <div className="container relative px-4 md:px-6 flex flex-col items-center text-center gap-6">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-wider text-white">
+            Moumene Store
+          </h1>
+          <p className="text-xl font-bold text-white md:w-[80%]" dir="rtl">
             نقدم لك منتجات رقمية موثوقة وعالية الجودة تساعدك على تطوير أعمالك وتحقيق أهدافك بكل احترافية
           </p>
-          <button className="group relative bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-xl transition-all duration-500 text-lg shadow-lg hover:scale-105 transform">
+          {/* <button className="group relative bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-xl transition-all duration-500 text-lg shadow-lg hover:scale-105 transform"> */}
+          <a href="/products" className="group relative bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-xl transition-all duration-500 text-lg shadow-lg hover:scale-105 transform inline-block">
+
             <span className="relative z-10 flex items-center justify-center gap-2">
               تسوق الآن
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </span>
-          </button>
+            </a>
+          {/* </button> */}
         </div>
-      </div>
+      </section>
 
       <div className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
