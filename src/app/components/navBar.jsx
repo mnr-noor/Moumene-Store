@@ -14,7 +14,7 @@
         <div className="max-w-7xl mx-auto relative flex items-center justify-center">
 
             {/* Centered Nav Items */}
-            <ul className="absolute left-1/2 transform -translate-x-1/2 flex flex-row-reverse gap-x-8 text-blue-500 font-semibold text-lg">
+            <ul className="absolute left-1/2 transform -translate-x-1/2 flex flex-row-reverse gap-x-8 text-gray-600 font-normal text-lg">
             {navItems.map((item, index) => (
                 <li key={index} className="relative group">
                 <Link href={item.href} legacyBehavior>

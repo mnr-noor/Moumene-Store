@@ -13,6 +13,7 @@ import Crunchyroll from "../assets/crunshyroll.jpg"
 import Icloud from "../assets/icloud.jpg"
 import AppleOne from "../assets/appleone.jpg"
 import SnapchatPlus from "../assets/snapchat.jpg"
+
 const categories = [
   {
     title: "موسيقى و صوتيات",
@@ -36,11 +37,11 @@ const categories = [
           "✔️ تشغيل غير محدود لأي أغنية",
         ],
         pricing: [
-          { duration: " mois avec votre email 1", price: "600 DA" },
-          { duration: "2 mois avec votre email", price: "1000 DA" },
-          { duration: "3 mois avec votre email", price: "1400 DA" },
-          { duration: "6 mois avec votre email + cadeaux", price: "2200 DA" },
-          { duration: "12 mois avec votre email + cadeaux", price: "3000 DA" },
+          { duration: "1mois avec votre email", price: "600 DA" },
+          { duration: "2mois avec votre email", price: "1000 DA" },
+          { duration: "3mois avec votre email", price: "1400 DA" },
+          { duration: "6mois avec votre email + cadeaux", price: "2200 DA" },
+          { duration: "12mois avec votre email + cadeaux", price: "3000 DA" },
         ],
         notes:
           "Spotify هي واحدة من أكبر منصات الموسيقى في العالم، تقدم لك الوصول إلى ملايين الأغاني، الألبومات، والبودكاست من مختلف أنحاء العالم. مع اشتراك Spotify Premium، تستمتع بتجربة خالية من الإعلانات، وجودة صوت عالية، وإمكانية تحميل وتشغيل الأغاني بدون إنترنت.",
@@ -62,16 +63,15 @@ const categories = [
           "✔️ إمكانية التحميل والتشغيل بدون نت"
         ],
         pricing: [
-          { duration: "3 mois sur votre compte", price: "1200 DA" },
-          { duration: "6 mois sur votre compte", price: "2100 DA" },
-          { duration: "12 mois sur votre compte", price: "4000 DA" }
+          { duration: "3mois sur votre compte", price: "1200 DA" },
+          { duration: "6mois sur votre compte", price: "2100 DA" },
+          { duration: "12mois sur votre compte", price: "4000 DA" }
         ],
         notes:
           "Apple Music هي خدمة الموسيقى الرسمية من Apple، تتيح لك الوصول إلى مكتبة ضخمة تضم أكثر من 100 مليون أغنية. تدمج بسلاسة مع أجهزتك، وتدعم كلمات الأغاني، الصوت المكاني (Spatial Audio)، وتجربة استماع مخصصة ومتكاملة.",
         price: "1200 DA - 4000 DA",
         image: Applemusic
       }
-      
     ],
   },
   {
@@ -81,7 +81,6 @@ const categories = [
     bgColor: "from-blue-400 to-blue-600",
     productCount: 6,
     products: [
-
       {
         name: "Shahid VIP",
         shortDescription: "نوفر لك اشتراك شاهد في آي بي اصلي 100% بافضل الاسعار",
@@ -97,12 +96,12 @@ const categories = [
           "✔️ جودة Full HD و 4K",
         ],
         pricing: [
-          { duration: "1 mois – 1 écran", price: "500 DA" },
-          { duration: "1 mois – compte avec votre email (20 écrans)", price: "1950 DA" },
-          { duration: "3 mois – 1 écran", price: "1200 DA" },
-          { duration: "3 mois – compte avec votre email (20 écrans)", price: "3300 DA" },
-          { duration: "12 mois – 1 écran", price: "3000 DA" },
-          { duration: "12 mois – compte avec votre email (20 écrans)", price: "7500 DA" },
+          { duration: "1mois – 1 écran", price: "500 DA" },
+          { duration: "1mois – compte avec votre email (20 écrans)", price: "1950 DA" },
+          { duration: "3mois – 1 écran", price: "1200 DA" },
+          { duration: "3mois – compte avec votre email (20 écrans)", price: "3300 DA" },
+          { duration: "12mois – 1 écran", price: "3000 DA" },
+          { duration: "12mois – compte avec votre email (20 écrans)", price: "7500 DA" },
         ],
         notes:
           "Shahid VIP هي منصة البث العربية الأولى، تقدم محتوى حصري من الأفلام، المسلسلات، البرامج، والمباريات المباشرة. استمتع بأحدث الإنتاجات العربية والعالمية بجودة عالية وبدون إعلانات.",
@@ -124,30 +123,26 @@ const categories = [
           "✔️ دعم لأكثر من جهاز واحد",
         ],
         pricing: [
-          { duration: "1 mois – 1 écran", price: "300 DA" },
-          { duration: "1 mois – 2 écrans", price: "500 DA" },
-          { duration: "1 mois – compte sur votre email (6 écrans)", price: "1000 DA" },
-      
-          { duration: "2 mois – 1 écran", price: "500 DA" },
-          { duration: "2 mois – 2 écrans", price: "800 DA" },
-          { duration: "2 mois – compte sur votre email (6 écrans)", price: "1500 DA" },
-      
-          { duration: "3 mois – 1 écran", price: "800 DA" },
-          { duration: "3 mois – 2 écrans", price: "1000 DA" },
-          { duration: "3 mois – compte sur votre email (6 écrans)", price: "2000 DA" },
-      
-          { duration: "6 mois – 1 écran", price: "1200 DA" },
-          { duration: "6 mois – 2 écrans", price: "1600 DA" },
-          { duration: "6 mois – compte sur votre email (6 écrans)", price: "3000 DA" },
-      
-          { duration: "12 mois – 1 écran", price: "1700 DA" },
-          { duration: "12 mois – 2 écrans", price: "2400 DA" },
-          { duration: "12 mois – compte sur votre email (6 écrans)", price: "4500 DA" },
+          { duration: "1mois – 1 écran", price: "300 DA" },
+          { duration: "1mois – 2 écrans", price: "500 DA" },
+          { duration: "1mois – compte sur votre email (6 écrans)", price: "1000 DA" },
+          { duration: "2mois – 1 écran", price: "500 DA" },
+          { duration: "2mois – 2 écrans", price: "800 DA" },
+          { duration: "2mois – compte sur votre email (6 écrans)", price: "1500 DA" },
+          { duration: "3mois – 1 écran", price: "800 DA" },
+          { duration: "3mois – 2 écrans", price: "1000 DA" },
+          { duration: "3mois – compte sur votre email (6 écrans)", price: "2000 DA" },
+          { duration: "6mois – 1 écran", price: "1200 DA" },
+          { duration: "6mois – 2 écrans", price: "1600 DA" },
+          { duration: "6mois – compte sur votre email (6 écrans)", price: "3000 DA" },
+          { duration: "12mois – 1 écran", price: "1700 DA" },
+          { duration: "12mois – 2 écrans", price: "2400 DA" },
+          { duration: "12mois – compte sur votre email (6 écrans)", price: "4500 DA" },
         ],
         notes:
           "Amazon Prime Video خدمة بث تقدم أفلامًا ومسلسلات عالمية، بما في ذلك إنتاجات أصلية حصرية (Prime Originals) بجودة عالية ودعم لعدة أجهزة.",
         price: "300 DA - 4500 DA",
-        image: Prime, // Replace with actual image import
+        image: Prime,
       },
       {
         name: "OSN+",
@@ -171,7 +166,7 @@ const categories = [
         notes:
           "OSN+ منصة بث تقدم محتوى عالمي حصري من HBO، Paramount، وشبكات عالمية أخرى، إلى جانب إنتاجات عربية مميزة. مثالية لعشاق المسلسلات الأجنبية والأفلام الجديدة.",
         price: "600 DA - 3000 DA",
-        image: ONS, // Replace with actual image import
+        image: ONS,
       },
       {
         name: "Netflix",
@@ -189,35 +184,31 @@ const categories = [
           "✔️ مشاهدة بجودة تصل إلى 4K",
         ],
         pricing: [
-          { duration: "1 mois – 1 écran", price: "700 DA" },
-          { duration: "1 mois – 2 écrans", price: "1400 DA" },
-          { duration: "1 mois – 3 écrans", price: "2000 DA" },
-          { duration: "1 mois – 4 écrans", price: "2600 DA" },
-          { duration: "1 mois – 5 écrans", price: "3000 DA" },
-      
-          { duration: "2 mois – 1 écran", price: "1200 DA" },
-          { duration: "2 mois – 2 écrans", price: "2400 DA" },
-          { duration: "2 mois – 3 écrans", price: "3400 DA" },
-          { duration: "2 mois – 4 écrans", price: "4400 DA" },
-          { duration: "2 mois – 5 écrans", price: "5000 DA" },
-      
-          { duration: "3 mois – 1 écran", price: "1700 DA" },
-          { duration: "3 mois – 2 écrans", price: "3400 DA" },
-          { duration: "3 mois – 3 écrans", price: "4900 DA" },
-          { duration: "3 mois – 4 écrans", price: "6200 DA" },
-          { duration: "3 mois – 5 écrans", price: "7300 DA" },
-      
-          { duration: "6 mois – 1 écran", price: "3000 DA" },
-          { duration: "6 mois – 2 écrans", price: "6000 DA" },
-          { duration: "6 mois – 3 écrans", price: "8500 DA" },
-          { duration: "6 mois – 4 écrans", price: "11000 DA" },
-          { duration: "6 mois – 5 écrans", price: "13000 DA" },
-      
-          { duration: "12 mois – 1 écran", price: "4500 DA" },
-          { duration: "12 mois – 2 écrans", price: "9000 DA" },
-          { duration: "12 mois – 3 écrans", price: "13000 DA" },
-          { duration: "12 mois – 4 écrans", price: "16500 DA" },
-          { duration: "12 mois – 5 écrans", price: "19500 DA" },
+          { duration: "1mois – 1 écran", price: "700 DA" },
+          { duration: "1mois – 2 écrans", price: "1400 DA" },
+          { duration: "1mois – 3 écrans", price: "2000 DA" },
+          { duration: "1mois – 4 écrans", price: "2600 DA" },
+          { duration: "1mois – 5 écrans", price: "3000 DA" },
+          { duration: "2mois – 1 écran", price: "1200 DA" },
+          { duration: "2mois – 2 écrans", price: "2400 DA" },
+          { duration: "2mois – 3 écrans", price: "3400 DA" },
+          { duration: "2mois – 4 écrans", price: "4400 DA" },
+          { duration: "2mois – 5 écrans", price: "5000 DA" },
+          { duration: "3mois – 1 écran", price: "1700 DA" },
+          { duration: "3mois – 2 écrans", price: "3400 DA" },
+          { duration: "3mois – 3 écrans", price: "4900 DA" },
+          { duration: "3mois – 4 écrans", price: "6200 DA" },
+          { duration: "3mois – 5 écrans", price: "7300 DA" },
+          { duration: "6mois – 1 écran", price: "3000 DA" },
+          { duration: "6mois – 2 écrans", price: "6000 DA" },
+          { duration: "6mois – 3 écrans", price: "8500 DA" },
+          { duration: "6mois – 4 écrans", price: "11000 DA" },
+          { duration: "6mois – 5 écrans", price: "13000 DA" },
+          { duration: "12mois – 1 écran", price: "4500 DA" },
+          { duration: "12mois – 2 écrans", price: "9000 DA" },
+          { duration: "12mois – 3 écrans", price: "13000 DA" },
+          { duration: "12mois – 4 écrans", price: "16500 DA" },
+          { duration: "12mois – 5 écrans", price: "19500 DA" },
         ],
         notes:
           "Netflix هي أشهر منصة بث عالمية، تقدم مكتبة ضخمة من الأفلام، المسلسلات، الوثائقيات، والبرامج الأصلية. مع اشتراك Netflix، تحصل على تجربة ترفيهية متجددة باستمرار، بجودة عالية ومناسبة لكل أفراد العائلة.",
@@ -239,10 +230,10 @@ const categories = [
           "✔️ دعم للترجمة والعرض بجودة 4K",
         ],
         pricing: [
-          { duration: "1 mois – 1 écran", price: "500 DA" },
-          { duration: "1 mois – compte sur votre email (7 écrans)", price: "2700 DA" },
-          { duration: "12 mois – 1 écran", price: "4000 DA" },
-          { duration: "12 mois – compte sur votre email (7 écrans)", price: "20000 DA" },
+          { duration: "1mois – 1 écran", price: "500 DA" },
+          { duration: "1mois – compte sur votre email (7 écrans)", price: "2700 DA" },
+          { duration: "12mois – 1 écran", price: "4000 DA" },
+          { duration: "12mois – compte sur votre email (7 écrans)", price: "20000 DA" },
         ],
         notes:
           "Disney+ هي منصة ديزني الرسمية، تعرض محتوى حصري من Disney، Pixar، Marvel، Star Wars، وNational Geographic. مناسبة للعائلات ومحبي الأفلام الأسطورية.",
@@ -265,26 +256,16 @@ const categories = [
           "✔️ جودة HD وخيارات متعددة",
         ],
         pricing: [
-          { duration: "1 mois – 1 écran", price: "500 DA" },
-          { duration: "1 mois – compte sur votre email (5 écrans)", price: "1300 DA" },
-          { duration: "12 mois – 1 écran", price: "2000 DA" },
-          { duration: "12 mois – compte sur votre email (5 écrans)", price: "7500 DA" },
+          { duration: "1mois – 1 écran", price: "500 DA" },
+          { duration: "1mois – compte sur votre email (5 écrans)", price: "1300 DA" },
+          { duration: "12mois – 1 écran", price: "2000 DA" },
+          { duration: "12mois – compte sur votre email (5 écrans)", price: "7500 DA" },
         ],
         notes:
           "Crunchyroll هي الوجهة الأولى لمحبي الأنمي، تقدم آلاف الحلقات من أشهر الأنميات مترجمة وبدون إعلانات، مع عرض الحلقات الجديدة بالتزامن مع اليابان.",
         price: "500 DA - 7500 DA",
         image: Crunchyroll,
       }
-      
-      
-      
-      
-
-
-
-
-
-      
     ],
   },
   {
@@ -306,28 +287,24 @@ const categories = [
           "التفعيل بثلاث طرق حسب نوع جهازك",
         ],
         pricing: [
-          { duration: "1 mois (تفعيل على Android)", price: "500 DA" },
-          { duration: "2 mois (تفعيل على Android)", price: "800 DA" },
-          { duration: "3 mois (تفعيل على Android)", price: "1300 DA" },
-          { duration: "12 mois (تفعيل على Android)", price: "2700 DA" },
-      
-          { duration: "1 mois (تفعيل مباشر على iPhone)", price: "800 DA" },
-          { duration: "2 mois (تفعيل مباشر على iPhone)", price: "1100 DA" },
-          { duration: "3 mois (تفعيل مباشر على iPhone)", price: "1500 DA" },
-          { duration: "6 mois (تفعيل مباشر على iPhone)", price: "2200 DA" },
-          { duration: "12 mois (تفعيل مباشر على iPhone)", price: "3300 DA" },
-      
-          { duration: "3 mois (تفعيل عبر اليوزر فقط)", price: "1800 DA" },
-          { duration: "6 mois (تفعيل عبر اليوزر فقط)", price: "3000 DA" },
-          { duration: "12 mois (تفعيل عبر اليوزر فقط)", price: "5500 DA" },
+          { duration: "1mois (تفعيل على Android)", price: "500 DA" },
+          { duration: "2mois (تفعيل على Android)", price: "800 DA" },
+          { duration: "3mois (تفعيل على Android)", price: "1300 DA" },
+          { duration: "12mois (تفعيل على Android)", price: "2700 DA" },
+          { duration: "1mois (تفعيل مباشر على iPhone)", price: "800 DA" },
+          { duration: "2mois (تفعيل مباشر على iPhone)", price: "1100 DA" },
+          { duration: "3mois (تفعيل مباشر على iPhone)", price: "1500 DA" },
+          { duration: "6mois (تفعيل مباشر على iPhone)", price: "2200 DA" },
+          { duration: "12mois (تفعيل مباشر على iPhone)", price: "3300 DA" },
+          { duration: "3mois (تفعيل عبر اليوزر فقط)", price: "1800 DA" },
+          { duration: "6mois (تفعيل عبر اليوزر فقط)", price: "3000 DA" },
+          { duration: "12mois (تفعيل عبر اليوزر فقط)", price: "5500 DA" },
         ],
         notes:
           "اشتراك Snapchat+ يقدم ميزات حصرية مثل تخصيص الواجهة، معرفة من شاهد قصتك أكثر من مرة، أولويات الردود، شارات خاصة، والمزيد، مع ضمان تفعيل آمن وسريع بدون الحاجة لكلمة السر.",
         price: "500 DA - 5500 DA",
-        image: SnapchatPlus, // Replace with your actual image import
+        image: SnapchatPlus,
       }
-      
-      
     ],
   },
   {
@@ -352,16 +329,16 @@ const categories = [
           "✔️ مشاركة التخزين مع العائلة",
         ],
         pricing: [
-          { duration: "1 mois", price: "600 DA" },
-          { duration: "2 mois", price: "800 DA" },
-          { duration: "3 mois", price: "1000 DA" },
-          { duration: "6 mois", price: "1800 DA" },
-          { duration: "12 mois", price: "3300 DA" },
+          { duration: "1mois", price: "600 DA" },
+          { duration: "2mois", price: "800 DA" },
+          { duration: "3mois", price: "1000 DA" },
+          { duration: "6mois", price: "1800 DA" },
+          { duration: "12mois", price: "3300 DA" },
         ],
         notes:
           "iCloud+ هي خدمة التخزين السحابي من Apple، تتيح لك الاحتفاظ بصورك، ملفاتك، وجهات اتصالك بشكل آمن ومزامنتها عبر كل أجهزتك. مع iCloud+ تحصل على مزايا إضافية مثل إخفاء البريد الإلكتروني، Private Relay، ودعم للعائلة.",
         price: "600 DA - 3300 DA",
-        image: Icloud, // Replace with actual image import
+        image: Icloud,
       },
       {
         name: "Apple One",
@@ -387,10 +364,8 @@ const categories = [
         notes:
           "Apple One هي باقة اشتراك شاملة من Apple، تجمع بين أشهر خدماتها مثل Apple Music، Apple TV+، iCloud+، Apple Arcade، وApple Fitness+ في اشتراك واحد بسعر أقل، ومناسبة للعائلات.",
         price: "1200 DA",
-        image: AppleOne, // Replace with actual image import
+        image: AppleOne,
       },
-      
-      
     ],
   }
 ];

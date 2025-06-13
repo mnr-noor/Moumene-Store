@@ -4,8 +4,10 @@ import CategoryCard from "../../components/CategoryCrd";
 import categories from "../../data/categories";
 import Image from "next/image";
 import Logo from "../../assets/logo.jpg";
+import { useRouter } from "next/navigation"; // Add this import
 
 const Products = () => {
+  const router = useRouter(); // Add router hook
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [modalProduct, setModalProduct] = useState(null);
   
@@ -22,6 +24,11 @@ const Products = () => {
     setSelectedDuration("all");
     setSelectedScreens("all");
     setSelectedActivation("all");
+  };
+
+  // Navigate to home page
+  const goToHome = () => {
+    router.push("/"); // Adjust this path according to your home page route
   };
 
   // Extract unique durations from pricing
@@ -149,6 +156,17 @@ const Products = () => {
       </div>
 
       <div className="relative mt-30 z-10 p-8 pt-20 max-w-7xl mx-auto min-h-[60vh]">
+        {/* Home Button - Always visible at the top */}
+        <div className="flex justify-start mb-8">
+          <button
+            onClick={goToHome}
+            className="bg-blue-600 text-white rounded-lg px-6 py-3 hover:bg-green-700 transition flex items-center gap-2 shadow-lg"
+          >
+            <span>🏠</span>
+            العودة إلى الصفحة الرئيسية
+          </button>
+        </div>
+
         {!selectedCategory ? (
           <div className="flex flex-wrap justify-center gap-8">
             {categories.map((category) => (
@@ -194,7 +212,7 @@ const Products = () => {
 
       {modalProduct && (
         <div
-          className="fixed inset-0 z-50 flex justify-center items-center p-6 overflow-auto bg-black/40 backdrop-blur-md animate-fadeIn"
+          className="fixed inset-0 z-50 flex justify-center items-center p-6 overflow-auto bg-black/40 backdrop-blur-md animate-fadeIn "
           onClick={closeModal}
         >
           <div
