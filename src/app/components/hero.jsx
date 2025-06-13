@@ -6,65 +6,64 @@ const Hero = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col items-center justify-center px-4 text-center overflow-hidden">
-        {/* Light Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-cyan-50">
-          <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent"></div>
-        </div>
-
-        {/* Floating Geometric Shapes */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-20 h-20 bg-blue-200/40 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-32 h-32 bg-purple-200/40 rounded-full blur-xl animate-pulse delay-1000"></div>
-          <div className="absolute bottom-40 left-20 w-24 h-24 bg-cyan-200/40 rounded-full blur-xl animate-pulse delay-500"></div>
-          <div className="absolute bottom-20 right-10 w-16 h-16 bg-pink-200/40 rounded-full blur-xl animate-pulse delay-700"></div>
-        </div>
-
-        {/* Animated Grid Pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/30 to-transparent transform -skew-y-12 animate-pulse"></div>
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 bg-[url('https://i.pinimg.com/originals/76/35/01/76350156177623676.jpg')] bg-cover bg-center">
+          {/* Dark overlay for better text contrast */}
+          <div className="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 via-blue-800/40 to-transparent"></div>
         </div>
 
         {/* Main Content */}
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          {/* Store Name with Glow Effect */}
-          <div className="mb-8">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-wide">
-              <span className="bg-gradient-to-r from-blue-600 via-blue-400 to-cyan-600 bg-clip-text text-transparent drop-shadow-lg">
+        <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
+          {/* Store Name with Enhanced Glow Effect */}
+          <div className="mb-8 relative">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+              <span className="bg-gradient-to-r from-white via-blue-100 to-cyan-200 bg-clip-text text-transparent drop-shadow-2xl">
                 Moumene Store
               </span>
             </h1>
-            <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-4 w-full h-full">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-200/30 blur-sm">
-                MoumeneStore
+            {/* Text shadow for better visibility */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white/10 blur-md">
+                Moumene Store
               </h1>
             </div>
           </div>
 
           {/* Animated Decorative Line */}
           <div className="relative mx-auto mb-8">
-            <div className="w-32 h-1 bg-gradient-to-r from-cyan-500 via-blue-300 mx-auto rounded-full shadow-lg shadow-blue-300/50"></div>
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-blue-400 rounded-full blur-sm animate-pulse"></div>
+            <div className="w-32 h-1 bg-gradient-to-r from-cyan-400 via-blue-400 to-blue-600 mx-auto rounded-full shadow-lg shadow-blue-400/30"></div>
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-white rounded-full blur-sm animate-pulse"></div>
           </div>
 
-          {/* Description */}
+          {/* Description with improved styling */}
           <p 
-            className="text-xl md:text-2xl text-gray-700 mb-12 leading-relaxed max-w-3xl mx-auto font-medium" 
+            className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-lg" 
             dir="rtl"
           >
             نقدم لك منتجات رقمية موثوقة وعالية الجودة تساعدك على تطوير أعمالك وتحقيق أهدافك بكل احترافية
           </p>
 
-          {/* Call to Action Button */}
-          <button className="group relative bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-500 text-white font-bold py-2 px-5 rounded-xl transition-all duration-500 text-lg shadow-2xl hover:shadow-blue-500/50 hover:scale-105 transform">
+          {/* Enhanced Call to Action Button */}
+          <button className="group relative bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-300 text-white font-bold py-3 px-8 rounded-xl transition-all duration-500 text-lg shadow-2xl hover:shadow-blue-500/30 hover:scale-105 transform border border-white/20 overflow-hidden">
             <span className="relative z-10 flex items-center justify-center gap-2">
               تسوق الآن
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-pink-400 rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+            {/* Animated background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 animate-pulse"></div>
+            {/* Shine effect */}
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+              <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 group-hover:animate-shine"></div>
+            </div>
           </button>
         </div>
 
-        
+        {/* Floating elements for visual interest */}
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-float">
+          <div className="w-3 h-3 bg-white rounded-full opacity-70"></div>
+        </div>
       </div>
 
       {/* Features Section */}
@@ -171,7 +170,7 @@ const Hero = () => {
             </div>
 
             {/* Right Side - Store Values */}
-            <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-8 border border-gray-200 shadow-xl">
+            <div className="bg-white/60 backdrop-blur-lg rounded-2xl p-8 border border-gray-200 shadow-xl">
               <h3 className="text-2xl font-bold text-gray-800 mb-4" dir="rtl">
                 التزامنا معك
               </h3>

@@ -6,7 +6,7 @@
     const navItems = [
         { label: "الرئيسية", href: "" },         
         { label: "المنتجات", href: "../products" }, 
-        { label: "عنا", href: "./aboutus.jsx" }        
+        { label: "عنا", href: "../about" }        
     ];
 
     return (
