@@ -10,7 +10,7 @@
     ];
 
     return (
-        <nav className="bg-white shadow-md py-4 px-6 fixed top-0 left-0 w-full z-50">
+        <nav className="bg-white shadow-md py-4 px-4 fixed top-0 left-0 w-full z-50">
         <div className="max-w-7xl mx-auto relative flex items-center justify-center">
 
             {/* Centered Nav Items */}
