@@ -147,15 +147,15 @@ const Hero = () => {
                 />
                 <ProductCard
                   icon={<Award className="w-8 h-8 text-purple-600" />}
-                  title="قوالب وتصاميم"
-                  description="قوالب احترافية جاهزة للاستخدام"
+                  title=" صوتيات ومؤثرات"
+                  description="  مؤثرات صوتية ومقاطع موسيقية للاستخدام التجاري والإبداعي "
                   bgColor="bg-purple-50"
                   borderColor="border-purple-200"
                 />
                 <ProductCard
                   icon={<Star className="w-8 h-8 text-cyan-600" />}
-                  title="كورسات وتعليم"
-                  description="دورات تدريبية متخصصة ومفيدة"
+                  title="أدوات الذكاء الاصطناعي"
+                  description="برمجيات وخدمات تعتمد على الذكاء الاصطناعي لتحسين الإنتاجية"
                   bgColor="bg-cyan-50"
                   borderColor="border-cyan-200"
                 />
