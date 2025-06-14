@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Shield, Headphones, Zap, Star, Users, Award, ArrowRight } from 'lucide-react';
-import bgHero from '../assets/bg-k.jpg';
+import bgHero from '../assets/bg-k.jpg'
 
 
 const Hero = () => {
