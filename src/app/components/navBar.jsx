@@ -26,20 +26,20 @@
     return (
         <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 ${
-            isScrolled ? 'bg-white/10 backdrop-blur-xl' : 'bg-transparent'
+            isScrolled ? 'bg-white text-black shadow-md' : 'bg-white text-black'
         }`}
         >
         <div className="max-w-7xl mx-auto relative flex items-center justify-center">
             {/* Centered Nav Items */}
-            <ul className="absolute left-1/2 transform -translate-x-1/2 flex flex-row-reverse gap-x-8 text-gray-600 font-normal text-lg">
+            <ul className="absolute left-1/2 transform -translate-x-1/2 flex flex-row-reverse gap-x-8 font-normal text-lg">
             {navItems.map((item, index) => (
                 <li key={index} className="relative group">
                 <Link href={item.href} legacyBehavior>
-                    <a className="group-hover:text-blue-300 transition-colors duration-300">
+                    <a className="group-hover:text-blue-600 transition-colors duration-300">
                     {item.label}
                     </a>
                 </Link>
-                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full" />
                 </li>
             ))}
             </ul>
