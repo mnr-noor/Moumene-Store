@@ -1,6 +1,10 @@
+    "use client";
     import React from 'react';
+    import { useRouter } from 'next/navigation';
 
     export default function AboutUs() {
+    const router = useRouter();
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center p-4">
         {/* Background decoration */}
@@ -20,27 +24,27 @@
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent mb-8">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent mb-10">
                 من نحن
             </h1>
 
             {/* Content */}
-            <div className="space-y-6 text-right" dir="rtl">
+            <div className="space-y-6 text-right mt-5" dir="rtl">
                 <p className="text-lg md:text-xl leading-relaxed text-slate-700 font-medium">
-                في <span className="text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text font-bold">Moumene Store</span>، 
+                في <span className="text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text font-bold">Moumene Store</span>،
                 بدأنا رحلتنا في عالم المنتجات الرقمية عام 2022، ومنذ ذلك الحين وضعنا الجودة والموثوقية في صميم كل ما نقدمه.
                 </p>
-                
+
                 <p className="text-lg leading-relaxed text-slate-600">
                 نلتزم بتوفير خدمات رقمية احترافية، سواء كنت تبحث عن اشتراكات، حلول رقمية، أو دعم سريع وآمن.
                 </p>
-                
+
                 <p className="text-lg leading-relaxed text-slate-600">
                 عملاؤنا يثقون بنا لأننا نركز على التفاصيل، ونحرص على تقديم تجربة سلسة ومرضية من أول تواصل حتى ما بعد البيع.
                 </p>
             </div>
 
-            {/* Stats or highlights */}
+            {/* Stats */}
             <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-slate-200/50">
                 <div className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-2">2022</div>
@@ -56,11 +60,18 @@
                 </div>
             </div>
 
-            {/* Call to action */}
-            <div className="mt-10">
-                <button className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+            {/* Call to action buttons */}
+            <div className="mt-10 flex flex-col md:flex-row gap-4 items-center justify-center">
+                {/* <button className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
                 <span className="relative z-10">تواصل معنا</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </button> */}
+
+                <button
+                onClick={() => router.push("/")}
+                className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-blue-700 border border-blue-600 rounded-full bg-white hover:bg-blue-50 transition-all duration-300"
+                >
+                العودة إلى الصفحة الرئيسة
                 </button>
             </div>
             </div>
