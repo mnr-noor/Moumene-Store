@@ -160,8 +160,8 @@ const categories = [
           "✔️ جودة عالية حتى 4K",
         ],
         pricing: [
-          { duration: "1 mois – 1 écran", price: "600DA" },
-          { duration: "12 mois – 1 écran", price: "3000DA" },
+          { duration: "1mois – 1 écran", price: "600DA" },
+          { duration: "12mois – 1 écran", price: "3000DA" },
         ],
         notes:
           "OSN+ منصة بث تقدم محتوى عالمي حصري من HBO، Paramount، وشبكات عالمية أخرى، إلى جانب إنتاجات عربية مميزة. مثالية لعشاق المسلسلات الأجنبية والأفلام الجديدة.",
