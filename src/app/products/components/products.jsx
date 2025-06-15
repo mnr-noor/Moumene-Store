@@ -390,7 +390,7 @@ return (
                         onChange={(e) => setSelectedDuration(e.target.value)}
                         className="px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                         >
-                        <option value="all">جميع المدد</option>
+                        <option value="all">حسب الأشهر</option>
                         {filterOptions.durations.map(duration => (
                             <option key={duration} value={duration}>
                             {duration} {duration === 1 ? 'شهر' : 'أشهر'}
@@ -406,7 +406,7 @@ return (
                         onChange={(e) => setSelectedScreens(e.target.value)}
                         className="px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                         >
-                        <option value="all">جميع الشاشات</option>
+                        <option value="all">حسب عدد الشاشات </option>
                         {filterOptions.screens.map(screen => (
                             <option key={screen} value={screen}>
                             {screen === "multiple" ? "حساب متعدد الشاشات" : `${screen} شاشة`}
