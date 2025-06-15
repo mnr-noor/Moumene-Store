@@ -5,6 +5,7 @@ import categories from "../../data/categories";
 import Image from "next/image";
 import Logo from "../../assets/logo.jpg";
 import { useRouter } from "next/navigation";
+import { Filter, Calendar, Monitor, Smartphone, X, RotateCcw } from "lucide-react";
 
 const Products = () => {
 const router = useRouter();
@@ -341,98 +342,78 @@ return (
         {/* Product Offers View */}
         {selectedProduct && (
             <div className="animate-fadeIn">
-            {/* Product Header */}
-            <div className="bg-white rounded-2xl p-8 mb-8 shadow-lg">
-                <div className="flex flex-col lg:flex-row gap-8 items-start">
-                <div className="relative w-full lg:w-1/3 h-64 rounded-xl overflow-hidden shadow-md">
-                    <Image
-                    src={selectedProduct.image}
-                    alt={getLocalized(selectedProduct, "name")}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    />
-                </div>
-                <div className="flex-1">
-                    <h2 className="text-4xl font-bold text-gray-800 mb-4">
-                    {getLocalized(selectedProduct, "name")}
-                    </h2>
-                    <p className="text-gray-600 text-lg leading-relaxed">
-                    {Array.isArray(getLocalized(selectedProduct, "description"))
-                        ? getLocalized(selectedProduct, "description").join(" ")
-                        : getLocalized(selectedProduct, "description")}
-                    </p>
-                    {selectedProduct.notes && (
-                    <div className="mt-4 p-4 bg-blue-50 rounded-lg">
-                        <p className="text-blue-800 text-sm font-medium">
-                        {selectedProduct.notes}
-                        </p>
-                    </div>
-                    )}
-                </div>
-                </div>
-            </div>
-
             {/* Filters */}
             {selectedProduct.pricing && selectedProduct.pricing.length > 0 && (
-                <div className="bg-white rounded-2xl p-6 mb-8 shadow-lg">
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 mb-8 shadow-lg border border-blue-100">
                 <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-2xl font-semibold text-gray-900">
-                    تصفية العروض
-                    </h3>
+                    <div className="flex items-center gap-3">
+                        <Filter className="w-6 h-6 text-blue-600" />
+                        <h3 className="text-2xl font-semibold text-gray-900">
+                        تصفية العروض
+                        </h3>
+                    </div>
                     
                     {/* Filter Controls */}
                     <div className="flex gap-4 flex-wrap">
                     {/* Duration Filter */}
                     {filterOptions.durations.length > 1 && (
-                        <select
-                        value={selectedDuration}
-                        onChange={(e) => setSelectedDuration(e.target.value)}
-                        className="px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                        <option value="all">حسب الأشهر</option>
-                        {filterOptions.durations.map(duration => (
-                            <option key={duration} value={duration}>
-                            {duration} {duration === 1 ? 'شهر' : 'أشهر'}
-                            </option>
-                        ))}
-                        </select>
+                        <div className="flex items-center gap-2">
+                            <Calendar className="w-4 h-4 text-blue-600" />
+                            <select
+                            value={selectedDuration}
+                            onChange={(e) => setSelectedDuration(e.target.value)}
+                            className="px-4 py-2 border border-blue-200 rounded-lg bg-blue-600 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-blue-700 transition-colors"
+                            >
+                            <option value="all">حسب الأشهر</option>
+                            {filterOptions.durations.map(duration => (
+                                <option key={duration} value={duration}>
+                                {duration} {duration === 1 ? 'شهر' : 'أشهر'}
+                                </option>
+                            ))}
+                            </select>
+                        </div>
                     )}
 
                     {/* Screen Filter - Show only if not Snapchat+ and has screen options */}
                     {!isSnapchatPlus && filterOptions.screens.length > 1 && (
-                        <select
-                        value={selectedScreens}
-                        onChange={(e) => setSelectedScreens(e.target.value)}
-                        className="px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                        <option value="all">حسب عدد الشاشات </option>
-                        {filterOptions.screens.map(screen => (
-                            <option key={screen} value={screen}>
-                            {screen === "multiple" ? "حساب متعدد الشاشات" : `${screen} شاشة`}
-                            </option>
-                        ))}
-                        </select>
+                        <div className="flex items-center gap-2">
+                            <Monitor className="w-4 h-4 text-blue-600" />
+                            <select
+                            value={selectedScreens}
+                            onChange={(e) => setSelectedScreens(e.target.value)}
+                            className="px-4 py-2 border border-blue-200 rounded-lg bg-blue-600 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-blue-700 transition-colors"
+                            >
+                            <option value="all">حسب عدد الشاشات </option>
+                            {filterOptions.screens.map(screen => (
+                                <option key={screen} value={screen}>
+                                {screen === "multiple" ? "حساب متعدد الشاشات" : `${screen} شاشة`}
+                                </option>
+                            ))}
+                            </select>
+                        </div>
                     )}
 
                     {/* Activation Method Filter - Show only for Snapchat+ */}
                     {isSnapchatPlus && filterOptions.activations.length > 1 && (
-                        <select
-                        value={selectedActivation}
-                        onChange={(e) => setSelectedActivation(e.target.value)}
-                        className="px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                        <option value="all">جميع طرق التفعيل</option>
-                        {filterOptions.activations.includes("android") && (
-                            <option value="android">تفعيل على Android</option>
-                        )}
-                        {filterOptions.activations.includes("iphone") && (
-                            <option value="iphone">تفعيل مباشر على iPhone</option>
-                        )}
-                        {filterOptions.activations.includes("username") && (
-                            <option value="username">تفعيل عبر اليوزر فقط</option>
-                        )}
-                        </select>
+                        <div className="flex items-center gap-2">
+                            <Smartphone className="w-4 h-4 text-blue-600" />
+                            <select
+                            value={selectedActivation}
+                            onChange={(e) => setSelectedActivation(e.target.value)}
+                            className="px-4 py-2 border border-blue-200 rounded-lg bg-blue-600 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-blue-700 transition-colors"
+                            >
+                            <option value="all">جميع طرق التفعيل</option>
+                            {filterOptions.activations.includes("android") && (
+                                <option value="android">تفعيل على Android</option>
+                            )}
+                            {filterOptions.activations.includes("iphone") && (
+                                <option value="iphone">تفعيل مباشر على iPhone</option>
+                            )}
+                            {filterOptions.activations.includes("username") && (
+                                <option value="username">تفعيل عبر اليوزر فقط</option>
+                            )}
+                            </select>
+                        </div>
                     )}
 
                     {/* Clear Filters Button */}
@@ -443,8 +424,9 @@ return (
                             setSelectedScreens("all");
                             setSelectedActivation("all");
                         }}
-                        className="px-3 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition text-sm"
+                        className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
                         >
+                        <RotateCcw className="w-4 h-4" />
                         مسح التصفية
                         </button>
                     )}
@@ -495,6 +477,39 @@ return (
                 <p className="text-3xl font-bold text-blue-600">{selectedProduct.price}</p>
                 </div>
             ) : null}
+
+            {/* Product Description - Now appears after the offers */}
+            <div className="bg-white rounded-2xl p-8 mt-8 shadow-lg">
+                <div className="flex flex-col lg:flex-row gap-8 items-start">
+                    <div className="relative w-full lg:w-1/3 h-64 rounded-xl overflow-hidden shadow-md">
+                        <Image
+                        src={selectedProduct.image}
+                        alt={getLocalized(selectedProduct, "name")}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 400px"
+                        />
+                    </div>
+                    <div className="flex-1">
+                        <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                        {getLocalized(selectedProduct, "name")}
+                        </h2>
+                        <h3 className="text-2xl font-bold text-gray-800 mb-4">وصف المنتج</h3>
+                        <p className="text-gray-600 text-lg leading-relaxed">
+                        {Array.isArray(getLocalized(selectedProduct, "description"))
+                            ? getLocalized(selectedProduct, "description").join(" ")
+                            : getLocalized(selectedProduct, "description")}
+                        </p>
+                        {selectedProduct.notes && (
+                        <div className="mt-4 p-4 bg-blue-50 rounded-lg">
+                            <p className="text-blue-800 text-sm font-medium">
+                            {selectedProduct.notes}
+                            </p>
+                        </div>
+                        )}
+                    </div>
+                </div>
+            </div>
             </div>
         )}
         </div>
